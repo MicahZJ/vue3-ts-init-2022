@@ -1,5 +1,7 @@
 <template lang="pug">
-div 123
+div#pug-wrapper
+  span 123
+  img(:src="iconSrc")
 </template>
 
 <script src="./control.ts"></script>

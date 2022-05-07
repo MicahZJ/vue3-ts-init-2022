@@ -12,7 +12,8 @@ app.provide('$Http', HttpAxios)
 import installElementPlus from './plugins/element'
 installElementPlus(app);
 
-
+// 初始化样式
+import '@/assets/css/init.styl'
 
 // 路由
 import router from "./router";

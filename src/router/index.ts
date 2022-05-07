@@ -23,20 +23,6 @@ const routes = [
     path: '/pug',
     component: () => import('@/views/template_page/index.vue'),
   },
-  {
-    path: '/register',
-    component: () => import('@/views/register_page/index.vue'),
-    meta:{
-      title:'申请使用'
-    }
-  },
-  {
-    path: '/result',
-    component: () => import('@/views/result_page/index.vue'),
-    meta:{
-      title:'申请使用'
-    }
-  }
 ];
 
 const router = createRouter({

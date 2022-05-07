@@ -1,7 +1,12 @@
 <template>
   <div id="vuex-wrapper">
+    <span class="test">VueX4测试用例{{count}}</span>
+    <br>
+    <el-button type="primary" @click="test()">vuex按钮</el-button>
+    <br>
     <span class="test">VueX4测试用例{{double}}</span>
-    <el-button type="primary">vuex按钮</el-button>
+    <br>
+    <el-button type="primary" @click="test2()">vuex按钮</el-button>
   </div>
 </template>
 

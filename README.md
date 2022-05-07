@@ -1,4 +1,4 @@
-# h5_test
+# vue3-ts-init-2022
 ## 1.安装vue3
 ### 下载最新的vue-cli
 ```
@@ -6,7 +6,7 @@ yarn global add @vue/cli@next
 ```
 ### 安装vue3
 ```
-vue create h5_test
+vue create vue3-ts-init-2022
 ```
 ### 升级vue3
 进入vue3-2020-init文件夹

@@ -21,10 +21,9 @@ export default class App extends Vue {}
   font-family Avenir, Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
   width 100vw
   height 100vh
+  
 /* 设置持续时间和动画函数 */
 .slide-fade-enter-active
   transition: all .5s ease;
