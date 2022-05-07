@@ -15,7 +15,6 @@ export default defineComponent({
   setup() {
     const title = ref<string>('XX');
 
-    // 获取统计图数据
     interface eleInf {
       params: any,
       http: any,

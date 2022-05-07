@@ -54,6 +54,25 @@ module.exports = {
 }
 ```
 ## 3.安装包
+### 3-0.typeScript
+#### 安装包
+```
+vue add typescript
+```
+安装选择如下
+```
+✔  Successfully installed plugin: @vue/cli-plugin-typescript
+
+? Use class-style component syntax? (Y/n) y
+? Use class-style component syntax? Yes
+? Use Babel alongside TypeScript (required for modern mode, auto-detected polyfi
+? Convert all .js files to .ts? (Y/n) y
+? Convert all .js files to .ts? Yes
+? Allow .js files to be compiled? (y/N) y
+? Allow .js files to be compiled? Yes
+? Skip type checking of all declaration files (recommended for apps)? (Y/n) n
+```
+
 ### 3-1.stylus
 不用配置
 ```
@@ -182,29 +201,42 @@ const config = {
 export default config;
 
 ```
-#### 在main.js中使用
+#### 在main.js中配置
 ```
-import { createApp } from 'vue'
-import App from './App.vue'
-
-// 绑定axios到Vue原型链
-import HttpAxios from './utils/httpTool'
-
-const app = createApp(App);
-
 // 绑定
 app.config.globalProperties.$Http = HttpAxios;
-app.mount('#app');
+app.provide('$Http', HttpAxios)
+
+```
+#### 在页面中使用
+```
+    interface eleInf {
+      params: any,
+      http: any,
+      getEleData(): Promise<void>,
+    }
+    const eleData:eleInf = reactive({
+      http : inject('$Http'),
+      params : {},
+      getEleData: async () => {
+        const res =  await eleData.http.axiosPost('/register', eleData.params)
+        if (res.code === 200) {
+          console.log(res)
+        }
+      }
+    });
+
+    const eleDataRefs = toRefs(eleData);
 
 ```
 
 ### 3-5.配置element
-### 1.下包
+#### 1.下包
 第一种 `vue add element-plus`
 
 第二种`npm install element-plus --save`/ 推荐用第二种
 
-### 2.新建element.js
+#### 2.新建element.js
 ```
 
 import ElementPlus from 'element-plus'
@@ -217,7 +249,7 @@ export default (app) => {
 }
 
 ```
-### 3.在main.js中导入
+#### 3.在main.js中导入
 ```
 import installElementPlus from './plugins/element'
 installElementPlus(app);
@@ -300,6 +332,7 @@ export default {
 
 <script src="./control.js"></script>
 ```
+
 ### 3-7 配置router
 #### 1.查看vue-router版本
 ```
